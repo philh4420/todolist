@@ -14,7 +14,13 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(express.static("public"));
 
-mongoose.connect("mongodb+srv://admin-phil:Bu$ter2@2@@cluster0-bkeu1.mongodb.net/todolistDB", {useNewUrlParser: true});
+try{
+mongoose.connect("mongodb+srv://admin-phil:XafZDOhGspt8GXk6@cluster0-e0ogv.mongodb.net/todolistDB", {useNewUrlParser: true, useUnifiedTopology: true });
+
+console.log('Connected to mongodb')
+}catch(err){
+console.log('Error: ', err)
+}
 
 const itemsSchema = {
   name: String
